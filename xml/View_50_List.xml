@@ -158,9 +158,9 @@
 						<aligny>center</aligny>
 						<scroll>true</scroll>
 						<scrollspeed>300</scrollspeed>
-						<font>font52_title</font>
+						<font>font32_title</font>
+						<textcolor>blue</textcolor>
 						<label>$VAR[ListLabelVar]</label>
-						<shadowcolor>text_shadow</shadowcolor>
 					</control>
 					<control type="label">
 						<top>0</top>

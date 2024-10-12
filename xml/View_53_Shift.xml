@@ -163,7 +163,8 @@
 							<top>603</top>
 							<width>330</width>
 							<height>100</height>
-							<font>font36_title</font>
+							<font>font32_title</font>
+							<textcolor>blue</textcolor>
 							<align>center</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>

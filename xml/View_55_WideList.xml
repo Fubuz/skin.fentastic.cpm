@@ -39,9 +39,9 @@
 							<aligny>center</aligny>
 							<scroll>true</scroll>
 							<scrollspeed>160</scrollspeed>
-							<font>font52_title</font>
+							<font>font32_title</font>
+							<textcolor>blue</textcolor>
 							<label>$VAR[ListLabelVar]</label>
-							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
 							<left>105</left>
@@ -177,9 +177,9 @@
 							<right>40</right>
 							<aligny>center</aligny>
 							<scroll>true</scroll>
-							<font>font52_title</font>
+							<font>font32_title</font>
+							<textcolor>blue</textcolor>
 							<label>$INFO[ListItem.Label]</label>
-							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
 							<left>105</left>
@@ -241,9 +241,9 @@
 							<right>100</right>
 							<aligny>center</aligny>
 							<scroll>true</scroll>
-							<font>font52_title</font>
+							<font>font32_title</font>
+							<textcolor>blue</textcolor>
 							<label>$INFO[ListItem.Label]</label>
-							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 					</focusedlayout>
 					<itemlayout height="list_item_height" condition="Container.Content(playlists) | Container.Content(favourites) | Container.Content()">
@@ -331,7 +331,8 @@
 				<right>40</right>
 				<aligny>center</aligny>
 				<scroll>true</scroll>
-				<font>font52_title</font>
+				<font>font32_title</font>
+				<textcolor>blue</textcolor>
 				<label>$INFO[ListItem.Label]</label>
 			</control>
 			<control type="label">

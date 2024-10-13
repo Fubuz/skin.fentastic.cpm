@@ -867,9 +867,9 @@
 								<height>95</height>
 								<width>315</width>
 								<aligny>center</aligny>
-								<font>font52_title</font>
+								<font>font45_title</font>
 								<label>$INFO[ListItem.Label]</label>
-								<textcolor>unfocused_text</textcolor>
+								<textcolor>blue</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
 								<visible>!ControlGroup(700).HasFocus</visible>
 							</control>

@@ -52,19 +52,10 @@
 				<visible>!ListItem.IsParentFolder</visible>
 			</control>
 			<control type="label">
-				<left>131</left>
+				<left>42</left>
 				<top>195</top>
-				<width>260</width>
-				<label>$INFO[ListItem.Rating]</label>
-				<font>font20_title</font>
-				<shadowcolor>text_shadow</shadowcolor>
-				<align>right</align>
-			</control>
-			<control type="label">
-				<left>51</left>
-				<top>195</top>
-				<width>100</width>
-				<label>$INFO[ListItem.Property(WatchedProgress)]</label>
+				<width>150</width>
+				<label>$INFO[ListItem.Property(WatchedProgress)]% watched</label>
 				<font>font20_title</font>
 				<shadowcolor>text_shadow</shadowcolor>
 				<align>left</align>

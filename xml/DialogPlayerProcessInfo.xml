@@ -357,7 +357,7 @@
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
 				</control>
-				<control type="label"> <!-- Dolby Vision Profile-->
+				<control type="label"> <!-- Dolby Vision Profile -->
 					<width>480</width>
 					<height>40</height>
 					<aligny>bottom</aligny>

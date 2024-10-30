@@ -135,7 +135,7 @@
 			<control type="grouplist">
 				<left>60</left>
 				<top>-204</top>
-								<visible>Control.HasFocus(5552)</visible>
+				<visible>Control.HasFocus(5552)</visible>
 				<control type="label"> <!-- DV Config -->
 					<width>500</width>
 					<height>40</height>
@@ -474,7 +474,7 @@
 						<height>40</height>
 						<aligny>bottom</aligny>
 						<align>left</align>
-						<label>[COLOR button_focus]L6 Max Lum:[/COLOR]</label>
+						<label>[COLOR button_focus]Source Min/Max:[/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>

@@ -158,7 +158,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>300</left>
+						<left>250</left>
 						<width>200</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -181,7 +181,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>300</left>
+						<left>250</left>
 						<width>200</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -191,7 +191,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>510</left>
+						<left>460</left>
 						<width>50</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -216,7 +216,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>300</left>
+						<left>250</left>
 						<width>200</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -239,7 +239,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>300</left>
+						<left>250</left>
 						<width>200</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -262,7 +262,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>300</left>
+						<left>250</left>
 						<width>200</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -285,7 +285,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>300</left>
+						<left>250</left>
 						<width>200</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -295,7 +295,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>510</left>
+						<left>460</left>
 						<width>50</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -320,7 +320,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>300</left>
+						<left>250</left>
 						<width>200</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -330,7 +330,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>510</left>
+						<left>460</left>
 						<width>50</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -355,7 +355,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>300</left>
+						<left>250</left>
 						<width>200</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -670,7 +670,7 @@
 			</control>
 			<!-- Dolby Vision - HDR Right -->
 			<control type="grouplist">
-				<left>1300</left>
+				<left>1320</left>
 				<top>-204</top>
 				<visible>Control.HasFocus(5552)</visible>
 				<control type="label">

@@ -1151,6 +1151,7 @@
 					<onfocus>SetProperty(PlayerInfoDialogFocus,5551,Home)</onfocus>
 				</control>
 				<control type="button" id="5552">
+					<visible>String.Contains(Player.Process(video.hdr.type),dolby vision) | String.Contains(Player.Process(video.hdr.type),hdr)</visible>
 					<width>auto</width>
 					<height>100</height>
 					<textoffsetx>40</textoffsetx>
@@ -1158,7 +1159,6 @@
 					<onfocus>SetProperty(PlayerInfoDialogFocus,5552,Home)</onfocus>
 				</control>
 				<control type="button" id="5553">
-					<visible>String.Contains(Player.Process(video.hdr.type),dolby vision) | String.Contains(Player.Process(video.hdr.type),hdr)</visible>
 					<width>auto</width>
 					<height>100</height>
 					<textoffsetx>40</textoffsetx>

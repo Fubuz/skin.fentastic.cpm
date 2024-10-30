@@ -21,7 +21,7 @@
 			<control type="grouplist">
 				<left>50</left>
 				<top>-204</top>
-				<visible>String.IsEqual(Window(Home).Property(PlayerInfoDialogFocus),5551)</visible>
+				<visible>Control.HasFocus(5551)</visible>
 				<control type="label">
 					<width>1200</width>
 					<height>50</height>
@@ -75,7 +75,7 @@
 			<control type="grouplist">
 				<left>1250</left>
 				<top>-204</top>
-				<visible>String.IsEqual(Window(Home).Property(PlayerInfoDialogFocus),5551)</visible>
+				<visible>Control.HasFocus(5551)</visible>
 				<usecontrolcoords>true</usecontrolcoords>
 				<control type="label">
 					<width>600</width>
@@ -368,7 +368,7 @@
 			</control>
 			<!-- Dolby Vision - HDR Middle -->
 			<control type="grouplist">
-				<left>670</left>
+				<left>600</left>
 				<top>-204</top>
 				<visible>Control.HasFocus(5552)</visible>
 				<control type="label">
@@ -380,7 +380,7 @@
 					<font>font12</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
-				<control type="group"> <!-- DV L6 MaxCLL -->
+				<control type="group"> <!-- DV L6 MaxCLL/MaxFALL -->
 					<width>500</width>
 					<height>40</height>
 					<control type="label">
@@ -388,7 +388,7 @@
 						<height>40</height>
 						<aligny>bottom</aligny>
 						<align>left</align>
-						<label>[COLOR button_focus]L6 Max CLL:[/COLOR]</label>
+						<label>[COLOR button_focus]L6 Max CLL/FALL:[/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
@@ -403,30 +403,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
-						<width>100</width>
-						<height>40</height>
-						<aligny>bottom</aligny>
-						<align>left</align>
-						<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
-						<font>font12</font>
-						<shadowcolor>black</shadowcolor>
-					</control>
-				</control>
-				<control type="group"> <!-- DV L6 MaxFALL -->
-					<width>500</width>
-					<height>40</height>
-					<control type="label">
-						<width>250</width>
-						<height>40</height>
-						<aligny>bottom</aligny>
-						<align>left</align>
-						<label>[COLOR button_focus]L6 Max FALL:[/COLOR]</label>
-						<font>font12</font>
-						<shadowcolor>black</shadowcolor>
-					</control>
-					<control type="label">
-						<left>250</left>
+						<left>350</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -436,7 +413,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
+						<left>570</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -446,7 +423,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 				</control>
-				<control type="group"> <!-- DV L6 Min Lum -->
+				<control type="group"> <!-- DV L6 Min/Max -->
 					<width>500</width>
 					<height>40</height>
 					<control type="label">
@@ -454,7 +431,7 @@
 						<height>40</height>
 						<aligny>bottom</aligny>
 						<align>left</align>
-						<label>[COLOR button_focus]L6 Min Lum:[/COLOR]</label>
+						<label>[COLOR button_focus]L6 Min/Max:[/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
@@ -466,10 +443,20 @@
 						<align>right</align>
 						<label>$INFO[Player.Process(video.dovi.l6.min.lum)]</label>
 						<font>font12</font>
+						<shadowcolor>black</shadowcolor>	
+					</control>
+					<control type="label">
+						<left>350</left>
+						<width>100</width>
+						<height>40</height>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>$INFO[Player.Process(video.dovi.l6.max.lum)]</label>
+						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
+						<left>570</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -479,7 +466,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 				</control>
-				<control type="group"> <!-- DV L6 Max Lum -->
+				<control type="group"> <!-- DV Source Min/Max nits -->
 					<width>500</width>
 					<height>40</height>
 					<control type="label">
@@ -497,12 +484,22 @@
 						<height>40</height>
 						<aligny>bottom</aligny>
 						<align>right</align>
-						<label>$INFO[Player.Process(video.dovi.l6.max.lum)]</label>
+						<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.source.min.nits)][/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
+						<left>350</left>
+						<width>100</width>
+						<height>40</height>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.source.max.nits)][/COLOR]</label>
+						<font>font12</font>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="label">
+						<left>570</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -512,7 +509,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 				</control>
-				<control type="group"> <!-- DV L1 Min PQ -->
+				<control type="group"> <!-- DV L1 Min/Max/Avg nits -->
 					<width>500</width>
 					<height>40</height>
 					<control type="label">
@@ -520,7 +517,7 @@
 						<height>40</height>
 						<aligny>bottom</aligny>
 						<align>left</align>
-						<label>[COLOR button_focus]L1 Min Lum:[/COLOR]</label>
+						<label>[COLOR button_focus]L1 Min/Max/Avg:[/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
@@ -535,50 +532,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
-						<width>100</width>
-						<height>40</height>
-						<aligny>bottom</aligny>
-						<align>left</align>
-						<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
-						<font>font12</font>
-						<shadowcolor>black</shadowcolor>
-					</control>
-					<control type="label">
-						<left>450</left>
-						<width>100</width>
-						<height>40</height>
-						<aligny>bottom</aligny>
-						<align>right</align>
-						<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.min.pq)][/COLOR]</label>
-						<font>font12</font>
-						<shadowcolor>black</shadowcolor>
-					</control>
-					<control type="label">
-						<left>570</left>
-						<width>120</width>
-						<height>40</height>
-						<aligny>bottom</aligny>
-						<align>left</align>
-						<label>[COLOR dimgrey]12-bit PQ[/COLOR]</label>
-						<font>font12</font>
-						<shadowcolor>black</shadowcolor>
-					</control>
-				</control>
-				<control type="group"> <!-- DV L1 Max PQ -->
-					<width>500</width>
-					<height>40</height>
-					<control type="label">
-						<width>250</width>
-						<height>40</height>
-						<aligny>bottom</aligny>
-						<align>left</align>
-						<label>[COLOR button_focus]L1 Max Lum:[/COLOR]</label>
-						<font>font12</font>
-						<shadowcolor>black</shadowcolor>
-					</control>
-					<control type="label">
-						<left>250</left>
+						<left>350</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -588,7 +542,17 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
+						<left>450</left>
+						<width>100</width>
+						<height>40</height>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.avg.nits)][/COLOR]</label>
+						<font>font12</font>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="label">
+						<left>570</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -597,13 +561,45 @@
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
+				</control>
+				<control type="label">
+					<width>250</width>
+					<height>40</height>
+					<aligny>bottom</aligny>
+					<align>left</align>
+					<label></label>
+					<font>font12</font>
+					<shadowcolor>black</shadowcolor>
+				</control>
+				<control type="group"> <!-- DV Source Min/Max PQ -->
+					<width>500</width>
+					<height>40</height>
 					<control type="label">
-						<left>450</left>
+						<width>250</width>
+						<height>40</height>
+						<aligny>bottom</aligny>
+						<align>left</align>
+						<label>[COLOR button_focus]Source Min/Max:[/COLOR]</label>
+						<font>font12</font>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="label">
+						<left>250</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
 						<align>right</align>
-						<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.max.pq)][/COLOR]</label>
+						<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.source.min.pq)][/COLOR]</label>
+						<font>font12</font>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="label">
+						<left>350</left>
+						<width>100</width>
+						<height>40</height>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.source.max.pq)][/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
@@ -618,7 +614,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 				</control>
-				<control type="group"> <!-- DV L1 Avg PQ -->
+				<control type="group"> <!-- DV L1 Min/Max/Avg PQ -->
 					<width>500</width>
 					<height>40</height>
 					<control type="label">
@@ -626,7 +622,7 @@
 						<height>40</height>
 						<aligny>bottom</aligny>
 						<align>left</align>
-						<label>[COLOR button_focus]L1 Avg Lum:[/COLOR]</label>
+						<label>[COLOR button_focus]L1 Min/Max/Avg:[/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
@@ -636,17 +632,17 @@
 						<height>40</height>
 						<aligny>bottom</aligny>
 						<align>right</align>
-						<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.avg.nits)][/COLOR]</label>
+						<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.min.pq)][/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
+						<left>350</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
-						<align>left</align>
-						<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
+						<align>right</align>
+						<label>[COLOR lightgreen]$INFO[Player.Process(video.dovi.l1.max.pq)][/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
@@ -674,7 +670,7 @@
 			</control>
 			<!-- Dolby Vision - HDR Right -->
 			<control type="grouplist">
-				<left>1410</left>
+				<left>1300</left>
 				<top>-204</top>
 				<visible>Control.HasFocus(5552)</visible>
 				<control type="label">
@@ -686,7 +682,7 @@
 					<font>font12</font>
 					<shadowcolor>black</shadowcolor>
 				</control>
-				<control type="group"> <!-- HDR MaxCLL -->
+				<control type="group"> <!-- HDR MaxCLL/MaxFALL -->
 					<width>500</width>
 					<height>40</height>
 					<control type="label">
@@ -694,7 +690,7 @@
 						<height>40</height>
 						<aligny>bottom</aligny>
 						<align>left</align>
-						<label>[COLOR button_focus]Max CLL:[/COLOR]</label>
+						<label>[COLOR button_focus]Max CLL/FALL:[/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
@@ -709,30 +705,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
-						<width>100</width>
-						<height>40</height>
-						<aligny>bottom</aligny>
-						<align>left</align>
-						<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
-						<font>font12</font>
-						<shadowcolor>black</shadowcolor>
-					</control>
-				</control>
-				<control type="group"> <!-- HDR MaxFALL -->
-					<width>500</width>
-					<height>40</height>
-					<control type="label">
-						<width>250</width>
-						<height>40</height>
-						<aligny>bottom</aligny>
-						<align>left</align>
-						<label>[COLOR button_focus]Max FALL:[/COLOR]</label>
-						<font>font12</font>
-						<shadowcolor>black</shadowcolor>
-					</control>
-					<control type="label">
-						<left>250</left>
+						<left>350</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -742,7 +715,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
+						<left>470</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -752,7 +725,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 				</control>
-				<control type="group"> <!-- HDR Min Lum -->
+				<control type="group"> <!-- HDR Min/Max nits -->
 					<width>500</width>
 					<height>40</height>
 					<control type="label">
@@ -760,7 +733,7 @@
 						<height>40</height>
 						<aligny>bottom</aligny>
 						<align>left</align>
-						<label>[COLOR button_focus]Min Lum:[/COLOR]</label>
+						<label>[COLOR button_focus]Min/Max:[/COLOR]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
@@ -775,30 +748,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
-						<width>100</width>
-						<height>40</height>
-						<aligny>bottom</aligny>
-						<align>left</align>
-						<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
-						<font>font12</font>
-						<shadowcolor>black</shadowcolor>
-					</control>
-				</control>
-				<control type="group"> <!-- HDR Max Lum -->
-					<width>500</width>
-					<height>40</height>
-					<control type="label">
-						<width>250</width>
-						<height>40</height>
-						<aligny>bottom</aligny>
-						<align>left</align>
-						<label>[COLOR button_focus]Max Lum:[/COLOR]</label>
-						<font>font12</font>
-						<shadowcolor>black</shadowcolor>
-					</control>
-					<control type="label">
-						<left>250</left>
+						<left>350</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -808,7 +758,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 					<control type="label">
-						<left>370</left>
+						<left>470</left>
 						<width>100</width>
 						<height>40</height>
 						<aligny>bottom</aligny>
@@ -823,7 +773,7 @@
 			<control type="grouplist">
 				<left>60</left>
 				<top>-204</top>
-				<visible>String.IsEqual(Window(Home).Property(PlayerInfoDialogFocus),5553)</visible>
+				<visible>Control.HasFocus(5553)</visible>
 				<control type="label"> <!-- Screen resolution -->
 					<width>620</width>
 					<height>40</height>
@@ -921,7 +871,7 @@
 			<control type="grouplist">
 				<left>730</left>
 				<top>-204</top>
-				<visible>String.IsEqual(Window(Home).Property(PlayerInfoDialogFocus),5553)</visible>
+				<visible>Control.HasFocus(5553)</visible>
 				<control type="label"> <!-- Video source type -->
 					<width>600</width>
 					<height>40</height>

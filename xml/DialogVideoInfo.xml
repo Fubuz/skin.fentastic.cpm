@@ -227,7 +227,7 @@
 					</include>
 					<include content="InfoDialogMetadata">
 						<param name="control_id" value="159" />
-						<param name="label" value="[COLOR button_focus2]$LOCALIZE[126]: $INFO[ListItem.Status]" />
+						<param name="label" value="$LOCALIZE[126]: $INFO[ListItem.Status]" />
 						<param name="altlabel" value="$LOCALIZE[126]: $INFO[ListItem.Status]" />
 						<param name="visible" value="!String.IsEmpty(ListItem.Status)" />
 					</include>

@@ -41,9 +41,9 @@
 				<include>SettingsPanel</include>
 				<content>
 					<item>
-						<label>Skin settings</label>
-						<onclick>ActivateWindow(skinsettings)</onclick>
-						<icon>icons/settings/skin.png</icon>
+						<label>CoreELEC</label>
+						<onclick>RunAddon(service.coreelec.settings)</onclick>
+						<icon>icons/settings/coreelec.png</icon>
 					</item>
 					<item>
 						<label>$LOCALIZE[10003]</label>
@@ -111,12 +111,6 @@
 						<label>$LOCALIZE[13000]</label>
 						<onclick>ActivateWindow(SystemSettings)</onclick>
 						<icon>icons/settings/system.png</icon>
-					</item>
-					<item>
-						<label>LibreELEC</label>
-						<onclick>RunAddon(service.libreelec.settings)</onclick>
-						<icon>icons/settings/libreelec.png</icon>
-						<visible>System.AddonIsEnabled(service.libreelec.settings)</visible>
 					</item>
 				</content>
 			</control>

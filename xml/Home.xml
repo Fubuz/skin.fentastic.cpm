@@ -1166,15 +1166,15 @@
           <aspectratio>keep</aspectratio>
           <width>130</width>
           <height>56</height>
-          <texture colordiffuse="accent_color">special://skin/media/logos/K-logo.png</texture>
+          <texture colordiffuse="blue">special://skin/media/logos/ce-logo.png</texture>
         </control>
         <control type="image">
-          <left>59</left>
+          <left>120</left>
           <top>0</top>
           <aspectratio>keep</aspectratio>
           <width>192</width>
           <height>56</height>
-          <texture colordiffuse="unfocused_text">special://skin/media/logos/letters.png</texture>
+          <texture colordiffuse="unfocused_text">special://skin/media/logos/ce-title.png</texture>
         </control>
 			</control>
 		</control>

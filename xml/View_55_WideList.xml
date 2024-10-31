@@ -51,6 +51,7 @@
 							<align>right</align>
 							<aligny>center</aligny>
 							<font>font32_title</font>
+							<textcolor>blue</textcolor>
 							<label>$INFO[ListItem.Property(WatchedProgress),]%</label>
 							<visible>!String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEqual(ListItem.DbType,season) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
 							<shadowcolor>text_shadow</shadowcolor>

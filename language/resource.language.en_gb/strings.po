@@ -581,7 +581,7 @@ msgstr ""
 
 #: /xml/Variables.xml
 msgctxt "#31124"
-msgid "Playerprocessinfo"
+msgid "Player Process"
 msgstr ""
 
 #: /xml/DialogVideoInfo.xml
@@ -985,7 +985,7 @@ msgstr ""
 
 #: /xml/DialogPlayerProcessInfo.xml
 msgctxt "#31643"
-msgid "A|V bit rate Mbs"
+msgid "A|V bit rate Mbps"
 msgstr ""
 
 #: /xml/DialogPlayerProcessInfo.xml

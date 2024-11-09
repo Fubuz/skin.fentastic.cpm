@@ -145,7 +145,7 @@
 						<top>8</top>
 						<width>174</width>
 						<height>26</height>
-						<texture>dolby.vision.horizontal.small.png</texture>
+						<texture fallback="dolby.vision.horizontal.small.fallback.png">dolby.vision.horizontal.small.png</texture>
 					</control>
 					<control type="label">
 						<left>185</left>
@@ -393,7 +393,7 @@
 						<top>8</top>
 						<width>174</width>
 						<height>26</height>
-						<texture>dolby.vision.horizontal.small.png</texture>
+						<texture fallback="dolby.vision.horizontal.small.fallback.png">dolby.vision.horizontal.small.png</texture>
 					</control>
 					<control type="label">
 						<left>185</left>
@@ -590,7 +590,7 @@
 						<shadowcolor>black</shadowcolor>
 					</control>
 				</control>
-				<control type="label">
+				<control type="label"> <!-- Spacer-->
 					<width>250</width>
 					<height>40</height>
 					<aligny>bottom</aligny>
@@ -701,6 +701,7 @@
 				<left>1320</left>
 				<top>-204</top>
 				<visible>Control.HasFocus(5552)</visible>
+				<visible>String.IsEqual(Player.Process(video.hdr.has.cll),1) | String.IsEqual(Player.Process(video.hdr.has.mdcv),1)</visible>
 				<control type="group">
 					<width>700</width>
 					<height>40</height>
@@ -709,7 +710,7 @@
 						<top>6</top>
 						<width>78</width>
 						<height>28</height>
-						<texture>hdr.10.small.png</texture>
+						<texture fallback="hdr.10.small.fallback.png">hdr.10.small.png</texture>
 					</control>
 					<control type="label">
 						<left>90</left>
@@ -805,6 +806,31 @@
 						<aligny>bottom</aligny>
 						<align>left</align>
 						<label>[COLOR dimgrey]cd/m²[/COLOR]</label>
+						<font>font12</font>
+						<shadowcolor>black</shadowcolor>
+					</control>
+				</control>
+				<control type="group"> <!-- HDR Colour Primaries -->
+					<visible>String.IsEqual(Player.Process(video.hdr.has.mdcv),1)</visible>
+					<width>500</width>
+					<height>40</height>
+					<control type="label">
+						<width>250</width>
+						<height>40</height>
+						<aligny>bottom</aligny>
+						<align>left</align>
+						<label>[COLOR button_focus]Colour Primaries:[/COLOR]</label>
+						<font>font12</font>
+						<shadowcolor>black</shadowcolor>
+					</control>
+					<control type="textbox">
+						<left>250</left>
+						<width>200</width>
+						<height>300</height>
+						<wrapmultiline>true</wrapmultiline>
+						<aligny>bottom</aligny>
+						<align>right</align>
+						<label>$INFO[Player.Process(video.hdr.colour.primaries)]</label>
 						<font>font12</font>
 						<shadowcolor>black</shadowcolor>
 					</control>
@@ -921,6 +947,17 @@
 					<font>font12</font>
 					<shadowcolor>black</shadowcolor>
 					<visible>Player.HasVideo</visible>
+					<visible>String.IsEqual(Player.Process(video.source.additional.hdr.type.raw),0)</visible>
+				</control>
+				<control type="label"> <!-- Video source type -->
+					<width>600</width>
+					<height>40</height>
+					<aligny>bottom</aligny>
+					<label>[COLOR button_focus]$LOCALIZE[31647]:[/COLOR] $INFO[Player.Process(video.source.hdr.type)] $VAR[|] [COLOR dimgrey]$INFO[Player.Process(video.source.additional.hdr.type)][/COLOR]</label>
+					<font>font12</font>
+					<shadowcolor>black</shadowcolor>
+					<visible>Player.HasVideo</visible>
+					<visible>!String.IsEqual(Player.Process(video.source.additional.hdr.type.raw),0)</visible>
 				</control>
 				<control type="label"> <!-- Video encoding -->
 					<width>600</width>
@@ -1019,11 +1056,11 @@
 			</control>
 			<!-- Player Right -->
 			<control type="grouplist">
-				<left>1380</left>
+				<left>1360</left>
 				<top>-204</top>
 				<visible>Control.HasFocus(5553)</visible>
 				<control type="label"> <!-- Display mode -->
-					<width>480</width>
+					<width>500</width>
 					<height>40</height>
 					<aligny>bottom</aligny>
 					<label>[COLOR button_focus]$LOCALIZE[32100]:[/COLOR] $INFO[Player.Process(amlogic.displaymode)]</label>
@@ -1032,7 +1069,7 @@
 					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="label"> <!-- EOTF & Gamut -->
-					<width>480</width>
+					<width>500</width>
 					<height>40</height>
 					<aligny>bottom</aligny>
 					<label>[COLOR button_focus]$LOCALIZE[32101]:[/COLOR] $INFO[Player.Process(amlogic.eoft_gamut)]</label>
@@ -1041,7 +1078,7 @@
 					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="label"> <!-- Dolby Vision Profile -->
-					<width>480</width>
+					<width>500</width>
 					<height>40</height>
 					<aligny>bottom</aligny>
 					<label>[COLOR button_focus]$LOCALIZE[31653]:[/COLOR] $VAR[DVProfileExtVar]$VAR[DVELVar, ] $INFO[Player.Process(video.dovi.codec.string),[COLOR dimgrey][,][/COLOR]]</label>
@@ -1051,7 +1088,7 @@
 					<visible>String.Contains(Player.Process(video.hdr.type),dolby vision)</visible>
 				</control>
 				<control type="label"> <!-- Dolby Vision Metadata -->
-					<width>480</width>
+					<width>500</width>
 					<height>40</height>
 					<aligny>bottom</aligny>
 					<label>[COLOR button_focus]$LOCALIZE[31656]:[/COLOR] $INFO[Player.Process(video.dovi.meta.version)]</label>
@@ -1061,7 +1098,7 @@
 					<visible>String.Contains(Player.Process(video.hdr.type),dolby vision)</visible>
 				</control>
 				<control type="label"> <!-- VS10 mode -->
-					<width>480</width>
+					<width>500</width>
 					<height>40</height>
 					<aligny>bottom</aligny>
 					<label>[COLOR button_focus]$LOCALIZE[31654]:[/COLOR] $VAR[DVVS10Var]</label>
@@ -1071,7 +1108,7 @@
 					<visible>!String.Contains(Player.Process(amlogic.vs10.mode),bypass)</visible>
 				</control>
 				<control type="label"> <!--Pixel format -->
-					<width>480</width>
+					<width>500</width>
 					<height>40</height>
 					<aligny>bottom</aligny>
 					<label>[COLOR button_focus]$LOCALIZE[31140]:[/COLOR] $INFO[Player.Process(amlogic.pixformat)]$VAR[DVTunnelVar, [COLOR dimgrey][,][/COLOR]]</label>
@@ -1080,7 +1117,7 @@
 					<visible>Player.HasVideo</visible>
 				</control>
 				<control type="label"> <!-- AML fps -->
-					<width>480</width>
+					<width>500</width>
 					<height>40</height>
 					<aligny>bottom</aligny>
 					<label>[COLOR button_focus]$LOCALIZE[31655]:[/COLOR] $INFO[Player.Process(amlogic.video.fps.info)][COLOR orange]$INFO[Player.Process(amlogic.video.fps.drop),	-&gt; ][/COLOR]</label>
@@ -1091,7 +1128,7 @@
 				</control>
 				<control type="progress">
 					<description>AUDIO QUEUE BAR</description>
-					<width>480</width>
+					<width>500</width>
 					<height>8</height>
 					<info>Player.Process(audio.queue.level)</info>
 					<texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
@@ -1099,7 +1136,7 @@
 				</control>
 				<control type="progress">
 					<description>AUDIO QUEUE DATA BAR</description>
-					<width>480</width>
+					<width>500</width>
 					<height>8</height>
 					<info>Player.Process(audio.queue.data.level)</info>
 					<texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
@@ -1107,7 +1144,7 @@
 				</control>
 				<control type="progress">
 					<description>VIDEO QUEUE BAR</description>
-					<width>480</width>
+					<width>500</width>
 					<height>8</height>
 					<info>Player.Process(video.queue.level)</info>
 					<texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
@@ -1115,7 +1152,7 @@
 				</control>
 				<control type="progress">
 					<description>VIDEO QUEUE DATA BAR</description>
-					<width>480</width>
+					<width>500</width>
 					<height>8</height>
 					<info>Player.Process(video.queue.data.level)</info>
 					<texturebg border="3" colordiffuse="60FFFFFF">colors/white50.png</texturebg>
@@ -1142,10 +1179,10 @@
 					<onfocus>SetProperty(PlayerInfoDialogFocus,5551,Home)</onfocus>
 				</control>
 				<control type="button" id="5552">
-					<visible>String.Contains(Player.Process(video.dovi.has.config),1) | 
-					         String.Contains(Player.Process(video.dovi.has.header),1) | 
-					         String.Contains(Player.Process(video.hdr.type),dolby vision) | 
-					         String.Contains(Player.Process(video.hdr.type),hdr)
+					<visible>String.IsEqual(Player.Process(video.dovi.has.config),1) |
+					         String.IsEqual(Player.Process(video.dovi.has.header),1) |
+							 String.IsEqual(Player.Process(video.hdr.has.cll),1) |
+							 String.IsEqual(Player.Process(video.hdr.has.mdcv),1)
 					</visible>
 					<width>auto</width>
 					<height>100</height>

@@ -696,6 +696,7 @@
     <value condition="String.IsEqual(Skin.String(DefaultBackgroundBrightness),High)">CCFFFFFF</value>
     <value condition="String.IsEqual(Skin.String(DefaultBackgroundBrightness),Medium)">99FFFFFF</value>
     <value condition="String.IsEqual(Skin.String(DefaultBackgroundBrightness),Low)">4DFFFFFF</value>
+    <value condition="String.IsEqual(Skin.String(DefaultBackgroundBrightness),Lowest)">33FFFFFF</value>
 		<value>99FFFFFF</value>
 	</variable>
 
@@ -704,6 +705,7 @@
     <value condition="String.IsEqual(Skin.String(DefaultFanartBrightness),High)">80FFFFFF</value>
     <value condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Medium)">66FFFFFF</value>
     <value condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Low)">4DFFFFFF</value>
+    <value condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Lowest)">33FFFFFF</value>
     <value>66FFFFFF</value>
 	</variable>
 

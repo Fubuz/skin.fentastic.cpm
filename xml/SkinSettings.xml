@@ -592,8 +592,8 @@
 					<include>DefaultSettingButton</include>
 					<onclick condition="String.IsEqual(Skin.String(DefaultFanartBrightness),High)">Skin.SetString(DefaultFanartBrightness,Medium)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Medium)">Skin.SetString(DefaultFanartBrightness,Low)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Lowest)">Skin.SetString(DefaultFanartBrightness,Lowest)</onclick>
-					<onclick condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Low)">Skin.SetString(DefaultFanartBrightness,Highest)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Low)">Skin.SetString(DefaultFanartBrightness,Lowest)</onclick>
+					<onclick condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Lowest)">Skin.SetString(DefaultFanartBrightness,Highest)</onclick>
 					<onclick condition="String.IsEqual(Skin.String(DefaultFanartBrightness),Highest)">Skin.SetString(DefaultFanartBrightness,High)</onclick>
 				</control>
 				<control type="button" id="608">

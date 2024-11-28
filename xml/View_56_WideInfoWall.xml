@@ -52,7 +52,7 @@
 				<visible>!ListItem.IsParentFolder</visible>
 			</control>
 			<control type="label">
-				<left>42</left>
+				<left>37</left>
 				<top>195</top>
 				<width>150</width>
 				<label>$INFO[ListItem.Property(WatchedProgress)]% watched</label>
@@ -61,8 +61,17 @@
 				<align>left</align>
 				<visible>$PARAM[focused] + String.IsEqual(ListItem.DBtype,episode) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
 			</control>
+			<control type="label">
+				<right>7</right>
+				<top>195</top>
+				<width>150</width>
+				<label>$INFO[ListItem.Duration]</label>
+				<font>font20_title</font>
+				<shadowcolor>text_shadow</shadowcolor>
+				<align>right</align>
+			</control>
 			<control type="image">
-				<left>20</left>
+				<left>25</left>
 				<top>192</top>
 				<width>32</width>
 				<height>32</height>

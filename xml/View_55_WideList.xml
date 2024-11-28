@@ -8,7 +8,7 @@
 				<visible>Control.IsVisible(55)</visible>
 				<include>Visible_Right</include>
 				<control type="fixedlist" id="55">
-					<left>594</left>
+					<left>554</left>
 					<top>list_top_offset</top>			
 					<bottom>$PARAM[bottom_offset]</bottom>
 					<right>25</right>
@@ -32,7 +32,7 @@
 							<texture>$VAR[ListWatchedIconVar]</texture>
 						</control>
 						<control type="label">
-							<left>105</left>
+							<left>85</left>
 							<top>0</top>
 							<bottom>0</bottom>
 							<right>260</right>
@@ -47,13 +47,25 @@
 							<left>105</left>
 							<top>0</top>
 							<bottom>0</bottom>
-							<right>40</right>
+							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
 							<font>font32_title</font>
 							<textcolor>blue</textcolor>
-							<label>$INFO[ListItem.Property(WatchedProgress),]%</label>
+							<label>$INFO[ListItem.Property(WatchedProgress),]% • $VAR[ListLabel2Var]</label>
 							<visible>!String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEqual(ListItem.DbType,season) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="label">
+							<left>105</left>
+							<top>0</top>
+							<bottom>0</bottom>
+							<right>20</right>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>font32_title</font>
+							<textcolor>blue</textcolor>
+							<label>$VAR[ListLabel2Var]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
@@ -102,7 +114,7 @@
 							<texture colordiffuse="grey">$VAR[ListWatchedIconVar]</texture>
 						</control>
 						<control type="label">
-							<left>105</left>
+							<left>85</left>
 							<top>0</top>
 							<bottom>0</bottom>
 							<right>40</right>
@@ -116,13 +128,25 @@
 							<left>105</left>
 							<top>0</top>
 							<bottom>0</bottom>
-							<right>40</right>
+							<right>20</right>
 							<align>right</align>
 							<aligny>center</aligny>
 							<font>font32</font>
 							<textcolor>unfocused_text</textcolor>
-							<label>$INFO[ListItem.Property(WatchedProgress),]%</label>
+							<label>$INFO[ListItem.Property(WatchedProgress),]% • $VAR[ListLabel2Var]</label>
 							<visible>!String.IsEqual(ListItem.DBtype,tvshow) + !String.IsEqual(ListItem.DbType,season) + !Integer.IsEqual(Container($PARAM[id]).ListItem.Property(WatchedProgress),0)</visible>
+							<shadowcolor>text_shadow</shadowcolor>
+						</control>
+						<control type="label">
+							<left>105</left>
+							<top>0</top>
+							<bottom>0</bottom>
+							<right>20</right>
+							<align>right</align>
+							<aligny>center</aligny>
+							<font>font32</font>
+							<textcolor>unfocused_text</textcolor>
+							<label>$VAR[ListLabel2Var]</label>
 							<shadowcolor>text_shadow</shadowcolor>
 						</control>
 						<control type="label">
@@ -202,7 +226,7 @@
 							<texture colordiffuse="grey">$VAR[ListWatchedIconVar]</texture>
 						</control>
 						<control type="label">
-							<left>105</left>
+							<left>85</left>
 							<top>0</top>
 							<bottom>0</bottom>
 							<right>40</right>

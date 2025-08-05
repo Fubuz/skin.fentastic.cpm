@@ -159,7 +159,7 @@
 						<scroll>true</scroll>
 						<scrollspeed>300</scrollspeed>
 						<font>font32_title</font>
-						<textcolor>blue</textcolor>
+						<textcolor>selected</textcolor>
 						<label>$VAR[ListLabelVar]</label>
 					</control>
 					<control type="label">
@@ -170,6 +170,7 @@
 						<align>right</align>
 						<aligny>center</aligny>
 						<font>font32</font>
+						<textcolor>selected</textcolor>
 						<label>[B]$INFO[ListItem.Property(WatchedEpisodes)]$INFO[ListItem.Property(TotalEpisodes), / ,][/B]</label>
 						<animation effect="fade" start="70" end="100" time="300" reversible="false">Focus</animation>
 						<shadowcolor>text_shadow</shadowcolor>

@@ -278,6 +278,14 @@
 					<onclick>Skin.ToggleSetting(Disable.ColorStudio)</onclick>
 					<selected>!Skin.HasSetting(Disable.ColorStudio)</selected>
 				</control>
+				<!-- HDR/DV LOGOS -->
+				<control type="radiobutton" id="63709">
+					<label>Show HDR/DV logos at the start of a video</label>
+					<visible>System.HasAddon(service.coreelec.settings)</visible>
+					<include>DefaultSettingButton</include>
+					<onclick>Skin.ToggleSetting(HDRIconsOsd)</onclick>
+					<selected>Skin.HasSetting(HDRIconsOsd)</selected>
+				</control>				
 			</control>
 
 			<control type="grouplist" id="647">

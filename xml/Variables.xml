@@ -101,6 +101,7 @@
 		<value condition="Container.SortMethod(7) | Container.SortMethod(29)">$INFO[ListItem.Year]</value>
 		<value condition="!String.isempty(ListItem.Appearances)">$LOCALIZE[38026]: $INFO[ListItem.Appearances]</value>
 		<value condition="Window.IsActive(musicplaylist) | Window.IsActive(videoplaylist)">$INFO[ListItem.Duration]</value>
+		<value condition="Container.Content(episodes) + String.IsEqual(ListItem.DBType,episode)">$INFO[ListItem.Duration]</value>
 		<value>$INFO[ListItem.Label2]</value>
 	</variable>
 	<variable name="PlotTextBoxVar">
@@ -338,8 +339,8 @@
 		<value condition="Control.HasFocus(608)+ PVR.IsRecordingPlayingChannel">$LOCALIZE[19059]</value>
 		<value condition="Control.HasFocus(608)">$LOCALIZE[264]</value>
 		<value condition="Control.HasFocus(804)">$LOCALIZE[33061]</value>
-		<value condition="Control.HasFocus(70011)">$LOCALIZE[31124]</value>
-		<value condition="Control.HasFocus(70012)">Player Debug</value>
+		<value condition="Control.HasFocus(70011)">Player Process Info</value>
+		<value condition="Control.HasFocus(70012)">VS10 Mode</value>
 		<value condition="Control.HasFocus(70040)">$LOCALIZE[19019]</value>
 		<value condition="Control.HasFocus(70041)">$LOCALIZE[19069]</value>
 		<value condition="Control.HasFocus(70042)">$LOCALIZE[31065]</value>
@@ -813,6 +814,11 @@
 		<value condition="!String.IsEmpty(ListItem.Year) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Year]</value>
 		<value condition="!String.IsEmpty(ListItem.Year) + Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Year,[B]Released: [/B]][CR]</value>
 	</variable>
+	<!-- Episode Type -->
+	<variable name="RI_EpisodeType">
+		<value condition="!Skin.HasSetting(Enable.AlternateInfo)">$VAR[EpisodeType2][B] • [/B]</value>
+		<value condition="Skin.HasSetting(Enable.AlternateInfo)">[B]$VAR[EpisodeType2][/B][CR]</value>
+	</variable>
 	<!-- Aired -->
 	<variable name="RI_Aired">
 		<value condition="!String.IsEmpty(ListItem.Premiered) + !Skin.HasSetting(Enable.AlternateInfo)">$INFO[ListItem.Premiered]</value>
@@ -948,7 +954,7 @@
 		<!-- TODO Fix seasons not showing release year -->
 		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,season)">$VAR[RI_Mpaa_Season]$VAR[RI_Network]$VAR[RI_Genre]$VAR[RI_RuntimeEpisodes]$VAR[RI_Endsat]</value>
 		<!-- EPISODES -->
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)">$VAR[RI_Aired]$VAR[RI_Mpaa]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes]$VAR[RI_Endsat]</value>
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)">$VAR[RI_EpisodeType]$VAR[RI_Aired]$VAR[RI_Network]$VAR[RI_RuntimeEpisodes]$VAR[RI_Endsat]</value>
 	</variable>
 	
 	<variable name="InfoPanelBottom">
@@ -970,8 +976,40 @@
 
 	<!-- EPISODES -->
 	<variable name="InfoPanelEpisode">
-		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)">$VAR[_Aired]$VAR[_Mpaa]$VAR[_Network]$VAR[_RuntimeEpisodes]$VAR[_Endsat][CR]$VAR[_Plot][CR]</value>
+		<value condition="!ListItem.IsCollection + String.IsEqual(ListItem.DBtype,episode)">$VAR[RI_EpisodeType]$VAR[_Aired]$VAR[_Network]$VAR[_RuntimeEpisodes]$VAR[_Endsat][CR]$VAR[_Plot][CR]</value>
 	</variable>
+	
+	<!-- Episode Type for widgets (season premiere, season finale, etc) -->
+	<variable name="EpisodeType">
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)"> • [COLOR ff8fc5d9]Series Premiere[/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)"> • [COLOR ff8fd9c5]Season Premiere[/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)"> • [COLOR ffc5d98f]Mid-Season Premiere[/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_finale)"> • [COLOR ffc58fd9]Series Finale[/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_finale)"> • [COLOR ffd98fc5]Season Finale[/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)"> • [COLOR ffd9c58f]Mid-Season Finale[/COLOR]</value>
+	</variable>
+	
+	<!-- Episode Type for info/rating left panel (season premiere, season finale, etc) -->
+	<variable name="EpisodeType2">
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)">[COLOR ff8fc5d9][UPPERCASE]Series Premiere[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)">[COLOR ff8fd9c5][UPPERCASE]Season Premiere[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)">[COLOR ffc5d98f][UPPERCASE]Mid-Season Premiere[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_finale)">[COLOR ffc58fd9][UPPERCASE]Series Finale[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_finale)">[COLOR ffd98fc5][UPPERCASE]Season Finale[/UPPERCASE][/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)">[COLOR ffd9c58f][UPPERCASE]Mid-Season Finale[/UPPERCASE][/COLOR]</value>
+	</variable>
+	
+	<!-- Episode Type for WideList view (season premiere, season finale, etc) -->
+	<variable name="EpisodeType3">
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_premiere)">[COLOR ff8fc5d9] (Series Premiere)[/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_premiere)">[COLOR ff8fd9c5] (Season Premiere)[/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_premiere)">[COLOR ffc5d98f] (Mid-Season Premiere)[/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), series_finale)">[COLOR ffc58fd9] (Series Finale)[/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), season_finale)">[COLOR ffd98fc5] (Season Finale)[/COLOR]</value>
+		<value condition="String.IsEqual(ListItem.Property(episode_type), mid_season_finale)">[COLOR ffd9c58f] (Mid-Season Finale)[/COLOR]</value>
+	</variable>
+	
+	<!-- CoreELEC CPM goodies -->
 	<variable name="DVELVar">
 		<value condition="String.IsEqual(Player.Process(video.dovi.el.type),minimum)">[COLOR lightgreen]MEL[/COLOR]</value>
 		<value condition="String.IsEqual(Player.Process(video.dovi.el.type),full)">[COLOR lightgreen]FEL[/COLOR]</value>
@@ -983,20 +1021,20 @@
 		<value condition="String.IsEqual(Player.Process(video.source.dovi.el.type),none)"></value>
 	</variable>
 	<variable name="RPUPresentVar">
-		<value condition="String.IsEqual(Player.Process(video.dovi.rpu.present),1)">[COLOR lightgreen]■[/COLOR]</value>
-		<value>[COLOR dimgrey]■[/COLOR]</value>
+		<value condition="String.IsEqual(Player.Process(video.dovi.rpu.present),1)">[COLOR lightgreen]•[/COLOR]</value>
+		<value>[COLOR dimgrey]•[/COLOR]</value>
 	</variable>
 	<variable name="BLPresentVar">
-		<value condition="String.IsEqual(Player.Process(video.dovi.bl.present),1)">[COLOR lightgreen]■[/COLOR]</value>
-		<value>[COLOR dimgrey]■[/COLOR]</value>
+		<value condition="String.IsEqual(Player.Process(video.dovi.bl.present),1)">[COLOR lightgreen]•[/COLOR]</value>
+		<value>[COLOR dimgrey]•[/COLOR]</value>
 	</variable>
 	<variable name="ELPresentVar">
-		<value condition="String.IsEqual(Player.Process(video.dovi.el.present),1)">[COLOR lightgreen]■[/COLOR]</value>
-		<value>[COLOR dimgrey]■[/COLOR]</value>
+		<value condition="String.IsEqual(Player.Process(video.dovi.el.present),1)">[COLOR lightgreen]•[/COLOR]</value>
+		<value>[COLOR dimgrey]•[/COLOR]</value>
 	</variable>
 	<variable name="ELSourcePresentVar">
-		<value condition="String.IsEqual(Player.Process(video.source.dovi.el.present),1)">[COLOR 8016a34a]■[/COLOR]</value>
-		<value>[COLOR dimgrey]■[/COLOR]</value>
+		<value condition="String.IsEqual(Player.Process(video.source.dovi.el.present),1)">[COLOR 8016a34a]•[/COLOR]</value>
+		<value>[COLOR dimgrey]•[/COLOR]</value>
 	</variable>
 	<variable name="DVProfileExtVar">
 		<value>$INFO[Player.Process(video.dovi.profile)].$INFO[Player.Process(video.dovi.bl.signal.compatibility)]</value>
@@ -1047,23 +1085,33 @@
 		<value condition="Integer.IsEqual(VideoPlayer.AudioChannels,10)">9.1</value>
 	</variable>
 	<variable name="AudioCodec1Var">
-		<value condition="String.Contains(VideoPlayer.AudioCodec,dtsma)">DTS-HD Master Audio</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,dtshd_ma)">DTS-HD Master Audio</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,dtshd_hra)">DTS-HD Hi-Res Audio</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,dtshd)">DTS-HD</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,dca) | String.Contains(VideoPlayer.AudioCodec,dts)">DTS</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,truehd)">Dolby TrueHD</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,eac3)">Dolby Digital+</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,ac3)">Dolby Digital</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,mp3)">MP3</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,mp2)">MP2</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,mp1)">MP1</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,flac)">FLAC</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,vorbis)">Vorbis</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,aac)">AAC</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,wmav2)">WMA</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,wmapro)">WMA Pro</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,pcm) | String.IsEqual(VideoPlayer.AudioCodec,pcm_bluray) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s16le) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s24le)">PCM</value>
-		<value condition="String.Contains(VideoPlayer.AudioCodec,cook)">Cook</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtsma)">DTS-HD Master Audio</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma)">DTS-HD Master Audio</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x)">DTS-HD Master Audio</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax)">DTS-HD Master Audio</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_hra)">DTS-HD Hi-Res Audio</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd)">DTS-HD</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dca) | String.IsEqual(VideoPlayer.AudioCodec,dts)">DTS</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd)">Dolby TrueHD</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos)">Dolby TrueHD</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3)">Dolby Digital+</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">Dolby Digital+</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,ac3)">Dolby Digital</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,mp3)">MP3</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,mp2)">MP2</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,mp1)">MP1</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,flac)">FLAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,vorbis)">Vorbis</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,aac)">AAC</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,wmav2)">WMA</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,wmapro)">WMA Pro</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,pcm) | String.IsEqual(VideoPlayer.AudioCodec,pcm_bluray) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s16le) | String.IsEqual(VideoPlayer.AudioCodec,pcm_s24le)">PCM</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,cook)">Cook</value>
+	</variable>
+	<variable name="ObjectAudio">
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,truehd_atmos)">[COLOR lightgreen]Atmos[/COLOR]</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,eac3_ddp_atmos)">[COLOR lightgreen]Atmos[/COLOR]</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x)">[COLOR lightgreen]DTS:X[/COLOR]</value>
+		<value condition="String.IsEqual(VideoPlayer.AudioCodec,dtshd_ma_x_imax)">[COLOR lightgreen]IMAX[/COLOR]</value>
 	</variable>
 </includes>

@@ -164,7 +164,7 @@
 							<width>330</width>
 							<height>100</height>
 							<font>font32_title</font>
-							<textcolor>blue</textcolor>
+							<textcolor>selected</textcolor>
 							<align>center</align>
 							<aligny>center</aligny>
 							<label>$INFO[ListItem.Label]</label>

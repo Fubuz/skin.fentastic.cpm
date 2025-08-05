@@ -73,5 +73,79 @@
 				<font>font13</font>
 			</control>
 		</control>
+
+		<control type="group" id="2">
+			<depth>DepthOSD+</depth>
+			<visible>String.IsEqual(Player.Process(av.change),1) + Skin.HasSetting(HDRIconsOsd)</visible>
+			<visible>true</visible>
+			<onclick>Dialog.Close(all)</onclick>
+			<animation type="Hidden">
+				<effect type="fade" start="100" end="0" delay="6000" time="500" tween="sine"/>
+			</animation>
+			
+			<!-- Video Codec Flags -->
+			
+			<!-- SDR_Bypass_Flag -->
+			<include content="VideoCodecFlag">
+				<param name="groupId">44</param><param name="imageId">45</param>
+				<param name="visible">String.IsEqual(Player.Process(video.source.hdr.type.raw), 0) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</param>
+				<param name="texture">flags/fullscreen/SDR.png</param>
+			</include>
+			<!-- HDR10_Bypass_Flag -->
+			<include content="VideoCodecFlag">
+				<param name="groupId">46</param><param name="imageId">47</param>
+				<param name="visible">String.IsEqual(Player.Process(video.source.hdr.type.raw), 1) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</param>
+				<param name="texture">flags/fullscreen/HDR10.png</param>
+			</include>
+			<!-- HDR10Plus_Bypass_Flag -->
+			<include content="VideoCodecFlag">
+				<param name="groupId">48</param><param name="imageId">49</param>
+				<param name="visible">String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</param>
+				<param name="texture">flags/fullscreen/HDR10Plus.png</param>
+			</include>
+			<!-- DV_Bypass_Flag -->
+			<include content="VideoCodecFlag">
+				<param name="groupId">50</param><param name="imageId">51</param>
+				<param name="visible">String.IsEqual(Player.Process(video.source.hdr.type.raw), 3) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</param>
+				<param name="texture">flags/fullscreen/DV.png</param>
+			</include>
+			<!-- HLG_Bypass_Flag -->
+			<include content="VideoCodecFlag">
+				<param name="groupId">52</param><param name="imageId">53</param>
+				<param name="visible">String.IsEqual(Player.Process(video.source.hdr.type.raw), 4) + String.Contains(Player.Process(amlogic.vs10.mode),Bypass)</param>
+				<param name="texture">flags/fullscreen/HLG.png</param>
+			</include>
+			<!-- VS10_SDR_Flag -->
+			<include content="VideoCodecFlag">
+				<param name="groupId">54</param><param name="imageId">55</param>
+				<param name="visible">String.Contains(Player.Process(amlogic.vs10.mode),SDR)</param>
+				<param name="texture">flags/fullscreen/SDR_VS10.png</param>
+			</include>
+			<!-- VS10_HDR10_Flag -->
+			<include content="VideoCodecFlag">
+				<param name="groupId">56</param><param name="imageId">57</param>
+				<param name="visible">String.Contains(Player.Process(amlogic.vs10.mode),HDR10)</param>
+				<param name="texture">flags/fullscreen/HDR10_VS10.png</param>
+			</include>
+			<!-- VS10_HDR10Plus_Flag -->
+			<include content="VideoCodecFlag">
+				<param name="groupId">58</param><param name="imageId">59</param>
+				<param name="visible">String.IsEqual(Player.Process(video.source.hdr.type.raw), 2) + !String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision) + !String.Contains(Player.Process(amlogic.vs10.mode),SDR) + !String.Contains(Player.Process(amlogic.vs10.mode),HLG)</param>
+				<param name="texture">flags/fullscreen/HDR10Plus_VS10.png</param>
+			</include>
+			<!-- VS10_DV_Flag -->
+			<include content="VideoCodecFlag">
+				<param name="groupId">60</param><param name="imageId">61</param>
+				<param name="visible">String.Contains(Player.Process(amlogic.vs10.mode),Dolby Vision)</param>
+				<param name="texture">flags/fullscreen/DV_VS10.png</param>
+			</include>
+			<!-- VS10_HLG_Flag -->
+			<include content="VideoCodecFlag">
+				<param name="groupId">62</param><param name="imageId">63</param>
+				<param name="visible">String.Contains(Player.Process(amlogic.vs10.mode),HLG)</param>
+				<param name="texture">flags/fullscreen/HLG_VS10.png</param>
+			</include>
+		</control>
+
 	</controls>
 </window>

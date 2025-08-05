@@ -869,7 +869,7 @@
 								<aligny>center</aligny>
 								<font>font45_title</font>
 								<label>$INFO[ListItem.Label]</label>
-								<textcolor>blue</textcolor>
+								<textcolor>selected</textcolor>
 								<shadowcolor>text_shadow</shadowcolor>
 								<visible>!ControlGroup(700).HasFocus</visible>
 							</control>
@@ -1166,7 +1166,7 @@
           <aspectratio>keep</aspectratio>
           <width>130</width>
           <height>56</height>
-          <texture colordiffuse="blue">special://skin/media/logos/ce-logo.png</texture>
+          <texture colordiffuse="selected">special://skin/media/logos/ce-logo.png</texture>
         </control>
         <control type="image">
           <left>120</left>

@@ -1946,4 +1946,23 @@
 		</control>
 	</include>
 	
+	<include name="VideoCodecFlag">
+		<param name="groupId"/>
+		<param name="imageId"/>
+		<param name="visible"/>
+		<param name="texture"/>
+		<definition>
+			<control type="group" id="$PARAM[groupId]">
+				<control type="image" id="$PARAM[imageId]">
+					<left>30</left>
+					<bottom>30</bottom>
+					<height>91</height>
+					<width>330</width>
+					<visible>$PARAM[visible]</visible>
+					<texture>$PARAM[texture]</texture>
+				</control>
+			</control>
+		</definition>
+	</include>
+
 </includes>

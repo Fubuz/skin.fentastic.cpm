@@ -948,16 +948,16 @@
 				<left>0</left>
 				<top>106</top>
 				<right>0</right>
-				<height>441</height>
+				<height>541</height>
 				<onright>$PARAM[list_id]</onright>
 				<orientation>horizontal</orientation>
-				<movement>2</movement>
+				<movement>1</movement>
 				<include content="WidgetListCommon">
 					<param name="list_id" value="$PARAM[list_id]"/>
 				</include>
 				<visible>$PARAM[visible]</visible>
 				<visible>Integer.IsGreater(Container($PARAM[list_id]).NumItems,0) | Container($PARAM[list_id]).IsUpdating</visible>
-				<itemlayout width="448" height="550">
+				<itemlayout width="627" height="770">
 					<control type="group">
 						<left>70</left>
 						<top>5</top>
@@ -971,7 +971,7 @@
 						</include>
 					</control>
 				</itemlayout>
-				<focusedlayout width="448" height="550">
+				<focusedlayout width="627" height="770">
 					<control type="group">
 						<depth>DepthContentPopout</depth>
 						<left>70</left>

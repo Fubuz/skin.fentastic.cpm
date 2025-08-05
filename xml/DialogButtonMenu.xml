@@ -66,6 +66,10 @@
 						<visible>System.CanReboot</visible>
 					</item>
 					<item>
+						<label>Restart Kodi services</label>
+						<onclick>RestartApp()</onclick>
+					</item>
+					<item>
 						<label>$LOCALIZE[13011]</label>
 						<onclick>Suspend()</onclick>
 						<visible>System.CanSuspend</visible>

@@ -94,6 +94,45 @@
 						<visible>Player.TempoEnabled</visible>
 					</control>
 				</control>
+				<control type="grouplist" id="15100">
+					<visible>String.IsEqual(window(home).Property(settingslist_content),vs10)</visible>
+					<width>700</width>
+					<height>350</height>
+					<itemgap>0</itemgap>
+					<onup>15100</onup>
+					<ondown>15100</ondown>
+					<orientation>vertical</orientation>
+					<control type="button" id="15101">
+						<width>700</width>
+						<include>DialogSettingButton</include>
+						<label>Original</label>
+						<onclick>Action(vs10.original)</onclick>
+						<selected>Integer.IsEqual(Player.Process(amlogic.vs10.mode.raw),5) | [[Integer.IsEqual(Player.Process(amlogic.vs10.mode.raw),0) | Integer.IsEqual(Player.Process(amlogic.vs10.mode.raw),1)] + String.Contains(Player.Process(video.hdr.type),Dolby)]</selected>
+					</control>
+					<control type="button" id="15102">
+						<width>700</width>
+						<include>DialogSettingButton</include>
+						<label>VS10 SDR</label>
+						<onclick>Action(vs10.sdr)</onclick>
+						<selected>Integer.IsEqual(Player.Process(amlogic.vs10.mode.raw),3)</selected>
+					</control>
+					<control type="button" id="15103">
+						<width>700</width>
+						<include>DialogSettingButton</include>
+						<label>VS10 HDR10</label>
+						<onclick>Action(vs10.hdr10)</onclick>
+						<selected>Integer.IsEqual(Player.Process(amlogic.vs10.mode.raw),2)</selected>
+						<visible>[String.Contains(Player.Process(video.hdr.type),SDR) | String.Contains(Player.Process(video.hdr.type),HLG)]</visible>
+					</control>
+					<control type="button" id="15104">
+						<width>700</width>
+						<include>DialogSettingButton</include>
+						<label>VS10 Dolby Vision</label>
+						<onclick>Action(vs10.dv)</onclick>
+						<selected>[Integer.IsEqual(Player.Process(amlogic.vs10.mode.raw),0) | Integer.IsEqual(Player.Process(amlogic.vs10.mode.raw),1)] + !String.Contains(Player.Process(video.hdr.type),Dolby)</selected>
+						<visible>String.Contains(Player.Process(video.hdr.type),SDR) | String.Contains(Player.Process(video.hdr.type),HDR)</visible>
+					</control>
+				</control>
 				<control type="grouplist" id="13100">
 					<visible>String.IsEqual(window(home).Property(settingslist_content),3d)</visible>
 					<width>700</width>

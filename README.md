@@ -22,16 +22,16 @@ This is just a personal fork. All credits go to the CoreELEC team, IvarBrandt, c
 
 A few pictures:
 
-(resources/images/new1.jpg)
+![1](resources/images/new1.jpg)
 
-(resources/images/new2.jpg)
+![2](resources/images/new2.jpg)
 
-(resources/images/new3.jpg)
+![3](resources/images/new3.jpg)
 
-(resources/images/new4.jpg)
+![4](resources/images/new4.jpg)
 
-(resources/images/new5.jpg)
+![5](resources/images/new5.jpg)
 
-(resources/images/new6.jpg)
+![6](resources/images/new6.jpg)
 
-(resources/images/new7.jpg)
+![7](resources/images/new7.jpg)

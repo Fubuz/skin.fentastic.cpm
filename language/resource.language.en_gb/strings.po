@@ -579,10 +579,7 @@ msgctxt "#31123"
 msgid "Same director"
 msgstr ""
 
-#: /xml/Variables.xml
-msgctxt "#31124"
-msgid "Player Process"
-msgstr ""
+#empty string with id 31124
 
 #: /xml/DialogVideoInfo.xml
 msgctxt "#31125"
@@ -955,7 +952,7 @@ msgstr ""
 
 #: /xml/DialogPlayerProcessInfo.xml
 msgctxt "#31634"
-msgid "Player"
+msgid "PlayerProcessInfo"
 msgstr ""
 
 #: /xml/DialogPlayerProcessInfo.xml
